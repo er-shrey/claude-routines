@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:"
+    />
+    <title>Claude Routines</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app">
+      <aside class="sidebar">
+        <div class="drag-region"></div>
+        <div class="brand">
+          <img class="brand-mark" src="../../build/icon.png" alt="" />
+          <span>Claude Routines</span>
+        </div>
+        <button class="btn primary block" id="new-routine">+ New routine</button>
+        <div class="section-label">Routines</div>
+        <nav id="routine-list" class="routine-list"></nav>
+        <div class="sidebar-footer">
+          <button class="nav-item" id="nav-approvals">
+            <span>Approvals</span><span class="badge" id="approval-badge" hidden>0</span>
+          </button>
+          <button class="nav-item" id="nav-settings">Settings</button>
+          <button class="nav-item" id="nav-help">Help</button>
+        </div>
+      </aside>
+      <main class="main">
+        <div class="drag-region"></div>
+        <div id="view" class="view"></div>
+      </main>
+    </div>
+    <div id="toast" class="toast" hidden></div>
+    <script src="../../node_modules/marked/marked.min.js"></script>
+    <script src="app.js"></script>
+    <script src="settings.js"></script>
+    <script src="help.js"></script>
+  </body>
+</html>

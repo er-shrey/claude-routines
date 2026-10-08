@@ -1,0 +1,54 @@
+{
+  "name": "claude-routines",
+  "version": "0.1.0",
+  "description": "Mini desktop runner for scheduled Claude Code routines (launchd + claude -p)",
+  "main": "src/main.js",
+  "private": true,
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --mac --publish never",
+    "dist:dir": "electron-builder --mac dir --publish never"
+  },
+  "dependencies": {
+    "marked": "^14.1.4"
+  },
+  "devDependencies": {
+    "electron": "^33.2.1",
+    "electron-builder": "^25.1.8"
+  },
+  "build": {
+    "appId": "com.claude-routines.app",
+    "productName": "Claude Routines",
+    "files": [
+      "src/**/*",
+      "package.json",
+      "node_modules/marked/**/*",
+      "build/icon.png"
+    ],
+    "asarUnpack": [
+      "src/runner.js",
+      "src/approver-mcp.js",
+      "src/lib/**"
+    ],
+    "mac": {
+      "category": "public.app-category.developer-tools",
+      "target": [
+        {
+          "target": "dmg"
+        },
+        {
+          "target": "zip"
+        }
+      ],
+      "identity": null,
+      "icon": "build/icon.icns"
+    },
+    "dmg": {
+      "title": "Claude Routines"
+    },
+    "directories": {
+      "output": "dist",
+      "buildResources": "build"
+    }
+  }
+}
